@@ -20,9 +20,9 @@ export function Hero() {
           <h1 className="font-display text-5xl font-bold tracking-tighter text-red-600 sm:text-7xl">
             <span className="">Amtsmusiktag 2023</span>
           </h1>
-          <div className="mt-6 space-y-6 font-display text-2xl tracking-tight text-gray-900">
+          <div className="mt-6 space-y-6 font-display sm:text-2xl tracking-tight text-gray-900">
             <p>
-            Am <strong>09. & 10. Juni 2023</strong> ist es soweit: Konolfingen wird zum Treffpunkt für alle Freunde der Blasmusik!
+            Am <b>09. & 10. Juni 2023</b> ist es soweit: Konolfingen wird zum Treffpunkt für alle Freunde der Blasmusik!
             Beim Amtsmusiktag der Blasmusiken erwarten Sie zahlreiche Konzerte, mitreissende Darbietungen und musikalische Höhepunkte, die Ihnen noch lange in Erinnerung bleiben werden.
             Die Veranstaltung bietet eine einzigartige Gelegenheit, die Vielfalt und das Können der Blasmusikvereine hautnah zu erleben.
             Ob Jung oder Alt, Musikliebhaber oder Laie - für jeden Geschmack ist etwas dabei!
@@ -37,14 +37,14 @@ export function Hero() {
           </Button>
           <dl className="mt-10 grid grid-cols-2 gap-y-6 gap-x-10 sm:mt-16 sm:gap-y-10 sm:gap-x-16 sm:text-center lg:auto-cols-auto lg:grid-flow-col lg:grid-cols-none lg:justify-start lg:text-left">
             {[
-              ['Musikgesellschaften', '18'],
-              ['Besucher', '2,000'],
-              ['Konzertsaal', 'Kirchgemeinde'],
-              ['Ort', 'Konolfingen'],
+              ['Musikgesellschaften', '14'],
+              ['Besucher', '~800'],
+              ['Konzertsaal', 'Kirchgemeindehaus'],
+              ['Festzelt', 'Mehrzweckplatz'],
             ].map(([name, value]) => (
               <div key={name}>
                 <dt className="font-mono text-sm text-red-600">{name}</dt>
-                <dd className="mt-0.5 text-2xl font-semibold tracking-tight text-gray-900">
+                <dd className="mt-0.5 sm:text-2xl font-semibold tracking-tight text-gray-900">
                   {value}
                 </dd>
               </div>

@@ -126,7 +126,7 @@ function ScheduleTabbed() {
 function DaySummary({ day }) {
   return (
     <>
-      <h3 className="text-2xl font-semibold tracking-tight text-red-900">
+      <h3 className="sm:text-2xl font-semibold tracking-tight text-red-900">
         <time dateTime={day.dateTime}>{day.date}</time>
       </h3>
       <p className="mt-1.5 text-base tracking-tight text-gray-900">
@@ -197,7 +197,7 @@ export function Schedule() {
           <h2 className="font-display text-4xl font-medium tracking-tighter text-red-600 sm:text-5xl">
             Unser zweitägiger Zeitplan ist prall gefüllt mit talentierten, kreativen und beeindruckenden Köpfen aus der Blasmusikszene.
           </h2>
-          <p className="mt-4 font-display text-2xl tracking-tight text-gray-900">
+          <p className="mt-4 font-display sm:text-2xl tracking-tight text-gray-900">
             Unser Programm bietet Konzerte, Auftritte und mitreißende Marschmusik-Präsentationen, sowie eine Disco und Barbetrieb. Zusätzlich gibt es eine Festwirtschaft mit kulinarischen Köstlichkeiten und erfrischenden Getränken.
           </p>
         </div>

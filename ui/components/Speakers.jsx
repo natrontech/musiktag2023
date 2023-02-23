@@ -100,7 +100,7 @@ export function Speakers() {
           >
             Musikgesellschaften
           </h2>
-          <p className="mt-4 font-display text-2xl tracking-tight text-gray-900">
+          <p className="mt-4 font-display sm:text-2xl tracking-tight text-gray-900">
             Beim Amtsmusiktag 2023 werden zahlreiche Musikgesellschaften aus der Region vertreten sein.
             Wir sind stolz darauf, dass so viele musikalische Vereine sich an diesem Tag zusammenfinden und ihr Bestes geben werden.
           </p>
@@ -140,7 +140,7 @@ export function Speakers() {
                       </div>
                       <time
                         dateTime={day.dateTime}
-                        className="mt-1.5 block text-2xl font-semibold tracking-tight text-red-900"
+                        className="mt-1.5 block sm:text-2xl font-semibold tracking-tight text-red-900"
                       >
                         {day.date}
                       </time>
