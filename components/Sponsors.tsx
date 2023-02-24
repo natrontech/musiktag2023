@@ -15,7 +15,15 @@ const Sponsors = () => {
         await pb.collection('sponsors').getList(1, 50, {
         }).then((res: ListResult) => {
           // @ts-ignore
-          setSponsors(res.items)
+          let tempSponsors: SponsorInterface[] = res.items
+          console.log(tempSponsors)
+          // sort sponsors by type, GOLD first, then SILVER, then BRONZE, then NONE
+          tempSponsors.sort((a,b) => {
+            const typeOrder: any = { gold: 1, silver: 2, bronze: 3, none: 4 }
+            return typeOrder[a.type] - typeOrder[b.type];
+          })
+          console.log(tempSponsors)
+          setSponsors(tempSponsors)
         }).catch((err) => {
           console.log(err)
         })
@@ -31,13 +39,16 @@ const Sponsors = () => {
         </h2>
         <div className="mx-auto mt-20 grid max-w-max grid-cols-1 place-content-center gap-y-12 gap-x-32 sm:grid-cols-3 md:gap-x-16 lg:gap-x-32">
           {sponsors.map((sponsor: SponsorInterface) => (
-            <div
+            <a
               key={sponsor.name}
               className="flex items-center justify-center"
+              href={sponsor.url}
+              target="_blank"
+              rel="noreferrer"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={parseImageUrl(sponsor)} alt={sponsor.name} />
-            </div>
+            </a>
           ))}
         </div>
       </Container>

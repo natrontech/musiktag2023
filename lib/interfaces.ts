@@ -3,6 +3,8 @@ import { BaseModel, Record } from 'pocketbase';
 interface SponsorInterface extends Record {
     name: string;
     image: string;
+    type: string;
+    url: string;
 }
 
 interface ScheduleInterface extends Record {
@@ -22,5 +24,5 @@ interface MusikgesellschaftInterface extends Record {
 export type {
     SponsorInterface,
     ScheduleInterface,
-    MusikgesellschaftInterface,
+    MusikgesellschaftInterface
 };
