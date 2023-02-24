@@ -1,10 +1,9 @@
 
-import { Button } from 'flowbite-react'
-import { Container } from '/components/Container'
-import { DiamondIcon } from '/components/DiamondIcon'
-import { Logo } from '/components/Logo'
+import Container from './Container'
+import Logo from './Logo'
+import { DiamondIcon } from './DiamondIcon'
 
-export function Header() {
+const Header = () => {
   return (
     <header className="relative z-50 pb-11 lg:pt-11">
       <Container className="flex flex-wrap items-center justify-center sm:justify-between lg:flex-nowrap">
@@ -41,3 +40,5 @@ export function Header() {
     </header>
   )
 }
+
+export default Header

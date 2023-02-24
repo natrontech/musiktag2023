@@ -1,64 +1,26 @@
-import { Record } from 'pocketbase';
+import { BaseModel, Record } from 'pocketbase';
 
-interface NewsInterface extends Record {
-    title: string;
-    content: string;
-    image: string;
-    category: string;
-}
-
-interface MemberInterface extends Record {
+interface SponsorInterface extends Record {
     name: string;
-    role: string;
     image: string;
 }
 
-enum FuelType {
-    Diesel = "Diesel",
-    Benzin = "Benzin",
-}
-
-enum GearboxType {
-    Automatik = "Automatik",
-    Schaltgetriebe = "Schaltgetriebe",
-}
-
-interface VehicleInterface extends Record {
+interface ScheduleInterface extends Record {
     name: string;
     description: string;
-    km: number;
-    price: number;
-    images: string[];
-    ps: number;
-    fuel: FuelType;
-    gearbox: GearboxType;
-    date: Date;
-    mfk: Date;
+    start_datetime: Date;
+    end_datetime: Date;
 }
 
-interface ServiceInterface extends Record {
-    title: string;
-    content: string;
+interface MusikgesellschaftInterface extends Record {
+    name: string;
+    description: string;
     image: string;
+    start_datetime: Date;
+    end_datetime: Date;
 }
-
-interface ImageInterface extends Record {
-    original: string;
-    thumbnail?: string;
-}
-
-interface LinkInterface extends Record {
-    title: string
-    description: string
-    url: string
-    image: string
-}
-
 export type {
-    NewsInterface,
-    MemberInterface,
-    VehicleInterface,
-    ServiceInterface,
-    ImageInterface,
-    LinkInterface
+    SponsorInterface,
+    ScheduleInterface,
+    MusikgesellschaftInterface,
 };

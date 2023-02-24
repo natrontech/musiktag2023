@@ -5,8 +5,8 @@ import getConfig from 'next/config';
 const { publicRuntimeConfig: config } = getConfig();
 
 let urls = {
-    test: 'http://localhost:8090', // test on kubernetes kind cluster locally
-    development: 'http://localhost:8090', // local development
+    test: 'https://amtsmusiktag.mgkonolfingen.ch/pb', // test on kubernetes kind cluster locally
+    development: 'https://amtsmusiktag.mgkonolfingen.ch/pb', // local development
     production: config.ENV_API_URL, // production
 }
 

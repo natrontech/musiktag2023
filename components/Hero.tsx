@@ -1,7 +1,7 @@
-import { Button } from '/components/Button'
-import { Container } from '/components/Container'
+import { Button } from './Button'
+import Container from './Container'
 
-export function Hero() {
+const Hero = () => {
   return (
     <div className="relative pt-10 pb-20 sm:py-24">
       <div className="absolute inset-x-0 -top-48 -bottom-14 overflow-hidden bg-red-50">
@@ -55,3 +55,5 @@ export function Hero() {
     </div>
   )
 }
+
+export default Hero

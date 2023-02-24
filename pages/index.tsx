@@ -1,11 +1,11 @@
 import Head from 'next/head'
-
-import { Footer } from '/components/Footer'
-import { Header } from '/components/Header'
-import { Hero } from '/components/Hero'
-import { Schedule } from '/components/Schedule'
-import { Speakers } from '/components/Speakers'
-import { Sponsors } from '/components/Sponsors'
+import { pb } from '../lib/pocketbase';
+import Header from '../components/Header'
+import Hero from '../components/Hero'
+import Speakers from '../components/Speakers'
+import Schedule from '../components/Schedule'
+import Sponsors from '../components/Sponsors'
+import Footer from '../components/Footer';
 
 export default function Home() {
   return (

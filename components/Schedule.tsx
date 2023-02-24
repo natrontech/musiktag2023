@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react'
-import Image from 'next/image'
 import { Tab } from '@headlessui/react'
 import clsx from 'clsx'
 
-import { Container } from '/components/Container'
+import Container from './Container'
 
 const schedule = [
   {
@@ -66,7 +65,7 @@ function ScheduleTabbed() {
   useEffect(() => {
     let smMediaQuery = window.matchMedia('(min-width: 640px)')
 
-    function onMediaQueryChange({ matches }) {
+    function onMediaQueryChange({ matches }: any) {
       setTabOrientation(matches ? 'vertical' : 'horizontal')
     }
 
@@ -85,28 +84,28 @@ function ScheduleTabbed() {
       vertical={tabOrientation === 'vertical'}
     >
       <Tab.List className="-mx-4 flex gap-x-4 gap-y-10 overflow-x-auto pl-4 pb-4 sm:mx-0 sm:flex-col sm:pb-0 sm:pl-0 sm:pr-8">
+        {/* @ts-ignore */}
         {({ selectedIndex }) =>
           schedule.map((day, dayIndex) => (
-            <div
-              key={day.dateTime}
-              className={clsx(
-                'relative w-3/4 flex-none pr-4 sm:w-auto sm:pr-0',
-                dayIndex !== selectedIndex && 'opacity-70'
-              )}
-            >
-              <DaySummary
-                day={{
-                  ...day,
-                  date: (
-                    <Tab className="[&:not(:focus-visible)]:focus:outline-none">
-                      <span className="absolute inset-0" />
-                      {day.date}
-                    </Tab>
-                  ),
-                }}
-              />
-            </div>
-          ))
+          <div
+            key={day.dateTime}
+            className={clsx(
+              'relative w-3/4 flex-none pr-4 sm:w-auto sm:pr-0',
+              dayIndex !== selectedIndex && 'opacity-70'
+            )}
+          >
+            <DaySummary
+              day={{
+                ...day,
+                date: (
+                  <Tab className="[&:not(:focus-visible)]:focus:outline-none">
+                    <span className="absolute inset-0" />
+                    {day.date}
+                  </Tab>
+                ),
+              }} />
+          </div>
+        ))
         }
       </Tab.List>
       <Tab.Panels>
@@ -123,7 +122,7 @@ function ScheduleTabbed() {
   )
 }
 
-function DaySummary({ day }) {
+function DaySummary({ day }: any) {
   return (
     <>
       <h3 className="sm:text-2xl font-semibold tracking-tight text-red-900">
@@ -136,7 +135,7 @@ function DaySummary({ day }) {
   )
 }
 
-function TimeSlots({ day, className }) {
+function TimeSlots({ day, className }: any) {
   return (
     <ol
       role="list"
@@ -145,7 +144,7 @@ function TimeSlots({ day, className }) {
         'space-y-8 bg-white/60 py-14 px-10 text-center shadow-xl shadow-red-900/5 backdrop-blur'
       )}
     >
-      {day.timeSlots.map((timeSlot, timeSlotIndex) => (
+      {day.timeSlots.map((timeSlot: any, timeSlotIndex: any) => (
         <li
           key={timeSlot.start}
           aria-label={`${timeSlot.name} talking about ${timeSlot.description} at ${timeSlot.start} - ${timeSlot.end}`}
@@ -189,7 +188,7 @@ function ScheduleStatic() {
   )
 }
 
-export function Schedule() {
+const Schedule = () => {
   return (
     <section id="schedule" aria-label="Schedule" className="py-20 sm:py-32">
       <Container className="relative z-10">
@@ -222,3 +221,5 @@ export function Schedule() {
     </section>
   )
 }
+
+export default Schedule

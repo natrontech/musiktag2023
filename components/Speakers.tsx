@@ -1,10 +1,9 @@
 import { useEffect, useId, useState } from 'react'
-import Image from 'next/image'
 import { Tab } from '@headlessui/react'
 import clsx from 'clsx'
 
-import { Container } from '/components/Container'
-import { DiamondIcon } from '/components/DiamondIcon'
+import Container from './Container'
+import { DiamondIcon } from './DiamondIcon'
 
 const days = [
   {
@@ -48,7 +47,7 @@ const days = [
   },
 ]
 
-function ImageClipPaths({ id, ...props }) {
+function ImageClipPaths({ id, ...props }: any) {
   return (
     <svg aria-hidden="true" width={0} height={0} {...props}>
       <defs>
@@ -66,14 +65,14 @@ function ImageClipPaths({ id, ...props }) {
   )
 }
 
-export function Speakers() {
+const Speakers = () => {
   let id = useId()
   let [tabOrientation, setTabOrientation] = useState('horizontal')
 
   useEffect(() => {
     let lgMediaQuery = window.matchMedia('(min-width: 1024px)')
 
-    function onMediaQueryChange({ matches }) {
+    function onMediaQueryChange({ matches }: any) {
       setTabOrientation(matches ? 'vertical' : 'horizontal')
     }
 
@@ -113,6 +112,7 @@ export function Speakers() {
           <div className="relative -mx-4 flex overflow-x-auto pb-4 sm:mx-0 sm:block sm:overflow-visible sm:pb-0">
             <div className="absolute bottom-0 top-2 left-0.5 hidden w-px bg-slate-200 lg:block" />
             <Tab.List className="grid auto-cols-auto grid-flow-col justify-start gap-x-8 gap-y-10 whitespace-nowrap px-4 sm:mx-auto sm:max-w-2xl sm:grid-cols-3 sm:px-0 sm:text-center lg:grid-flow-row lg:grid-cols-1 lg:text-left">
+              {/* @ts-ignore */}
               {({ selectedIndex }) =>
                 days.map((day, dayIndex) => (
                   <div key={day.dateTime} className="relative lg:pl-8">
@@ -198,3 +198,5 @@ export function Speakers() {
     </section>
   )
 }
+
+export default Speakers

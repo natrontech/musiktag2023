@@ -1,7 +1,7 @@
-import { Container } from '/components/Container'
-import { Logo } from '/components/Logo'
+import Container from './Container'
+import Logo from './Logo'
 
-export function Footer() {
+const Footer = () => {
   return (
     <footer className="py-16">
       <Container className="flex flex-col items-center justify-between md:flex-row">
@@ -14,3 +14,5 @@ export function Footer() {
     </footer>
   )
 }
+
+export default Footer

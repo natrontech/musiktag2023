@@ -4570,10 +4570,10 @@ pluralize@^8.0.0:
   resolved "https://registry.npmjs.org/pluralize/-/pluralize-8.0.0.tgz"
   integrity sha512-Nc3IT5yHzflTfbjgqWcCPpo7DaKy4FnpB0l/zCAW0Tc7jxAiuqSxHasntB3D7887LSrA93kDJ9IXovxJYxyLCA==
 
-pocketbase@^0.7.1:
-  version "0.7.1"
-  resolved "https://registry.npmjs.org/pocketbase/-/pocketbase-0.7.1.tgz"
-  integrity sha512-uA/Ltci3OrZ/sYfOjB/SCQX87xnB0Gowci0eUNgK7Sb0gk68Yy79ynTKgcmrw6wdXXVrY/vOoNR/DU8oahCBAA==
+pocketbase@^0.11.1:
+  version "0.11.1"
+  resolved "https://registry.yarnpkg.com/pocketbase/-/pocketbase-0.11.1.tgz#4dff24e88214bbf2eaf99bcd749cef9ee9604dd3"
+  integrity sha512-4DeKvS3Yqd8zx4/sHQhalACK5fl2/UfzBTLvCFVrTNBqXpy1epmOaXEiUjHNoZYLFw1IMeksRRaWZR8akARwOQ==
 
 postcss-100vh-fix@^1.0.2:
   version "1.0.2"
