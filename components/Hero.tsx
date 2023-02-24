@@ -1,4 +1,3 @@
-import { Button } from './Button'
 import Container from './Container'
 
 const Hero = () => {
@@ -32,9 +31,6 @@ const Hero = () => {
             Wir freuen uns darauf, Sie in Konolfingen willkommen zu heissen!
             </p>
           </div>
-          <Button href="#" className="mt-10 w-full sm:hidden">
-            Get your tickets
-          </Button>
           <dl className="mt-10 grid grid-cols-2 gap-y-6 gap-x-10 sm:mt-16 sm:gap-y-10 sm:gap-x-16 sm:text-center lg:auto-cols-auto lg:grid-flow-col lg:grid-cols-none lg:justify-start lg:text-left">
             {[
               ['Musikgesellschaften', '14'],

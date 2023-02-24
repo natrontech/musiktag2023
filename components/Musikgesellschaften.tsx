@@ -4,48 +4,17 @@ import clsx from 'clsx'
 
 import Container from './Container'
 import { DiamondIcon } from './DiamondIcon'
+import { MusikgesellschaftInterface } from '../lib/interfaces'
+import { ListResult } from 'pocketbase'
+import { pb } from '../lib/pocketbase'
+import { parseImageUrl } from '../lib/parser'
 
-const days = [
-  {
-    name: 'Abends',
-    date: '09. Juni',
-    dateTime: '2022-06-09',
-    speakers: [
-      {
-        name: 'MG Konolfingen',
-        description: 'Leitung: <leitung>',
-        image: '/images/mgs/mgkonolfingen.png',
-      },
-      {
-        name: 'MG Konolfingen',
-        description: 'Leitung: <leitung>',
-        image: '/images/mgs/mgkonolfingen.png',
-      },
-      {
-        name: 'MG Konolfingen',
-        description: 'Leitung: <leitung>',
-        image: '/images/mgs/mgkonolfingen.png',
-      },
-    ],
-  },
-  {
-    name: 'Ganztägig',
-    date: '10. Juni',
-    dateTime: '2022-06-10',
-    speakers: [
-      {
-        name: 'MG Konolfingen',
-        description: 'Leitung: <leitung>',
-        image: '/images/mgs/mgkonolfingen.png',
-      },
-      {
-        name: 'MG Konolfingen',
-        description: 'Leitung: <leitung>',
-        image: '/images/mgs/mgkonolfingen.png',
-      },
-    ],
-  },
-]
+interface DaysInterface {
+  name: string
+  date: string
+  dateTime: string
+  speakers: MusikgesellschaftInterface[]
+}
 
 function ImageClipPaths({ id, ...props }: any) {
   return (
@@ -65,9 +34,60 @@ function ImageClipPaths({ id, ...props }: any) {
   )
 }
 
-const Speakers = () => {
+const Musikgesellschaften = () => {
   let id = useId()
   let [tabOrientation, setTabOrientation] = useState('horizontal')
+
+  const [days, setDays] = useState<DaysInterface[]>([
+    {
+      name: 'Abends',
+      date: '09. Juni',
+      dateTime: '2022-06-09',
+      speakers: []
+    },
+    {
+      name: 'Ganztägig',
+      date: '10. Juni',
+      dateTime: '2022-06-10',
+      speakers: []
+    }
+  ])
+
+  useEffect(() => {
+    (
+      async () => {
+        await pb.collection('musikgesellschaften').getList(1, 50, {
+        }).then((res: ListResult) => {
+          // @ts-ignore
+          let tempMusikgesellschaften: MusikgesellschaftInterface[] = res.items
+          // add each musikgesellschaft to the correct day
+          if (tempMusikgesellschaften.length > 0) {
+            tempMusikgesellschaften.forEach((musikgesellschaft: MusikgesellschaftInterface) => {
+              let dayString = musikgesellschaft.start_datetime.toString()
+              // if musikgesellschaft.start_datetime contains the string "2023-06-09"
+              if ((dayString.indexOf('2023-06-09') > -1)) {
+                // add musikgesellschaft to the first day
+                setDays((prevDays) => {
+                  let newDays = [...prevDays]
+                  newDays[0].speakers.push(musikgesellschaft)
+                  return newDays
+                })
+              } else {
+                // add musikgesellschaft to the second day
+                setDays((prevDays) => {
+                  let newDays = [...prevDays]
+                  newDays[1].speakers.push(musikgesellschaft)
+                  return newDays
+                })
+              }
+            })
+          }
+        }).catch((err) => {
+          console.log(err)
+        })
+      }
+    )()
+  }, [])
 
   useEffect(() => {
     let lgMediaQuery = window.matchMedia('(min-width: 1024px)')
@@ -133,7 +153,7 @@ const Speakers = () => {
                             : 'text-slate-500'
                         )}
                       >
-                        <Tab className="[&:not(:focus-visible)]:focus:outline-none">
+                        <Tab className="[focus:outline-none focus:none">
                           <span className="absolute inset-0" />
                           {day.name}
                         </Tab>
@@ -154,7 +174,7 @@ const Speakers = () => {
             {days.map((day) => (
               <Tab.Panel
                 key={day.dateTime}
-                className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 sm:gap-y-16 md:grid-cols-3 [&:not(:focus-visible)]:focus:outline-none"
+                className="grid focus:none grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 sm:gap-y-16 md:grid-cols-3 focus:outline-none"
                 unmount={false}
               >
                 {day.speakers.map((speaker, speakerIndex) => (
@@ -176,7 +196,7 @@ const Speakers = () => {
                       >
                         <img
                           className="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover:scale-110"
-                          src={speaker.image}
+                          src={parseImageUrl(speaker)}
                           alt=""
                           sizes="(min-width: 1280px) 17.5rem, (min-width: 1024px) 25vw, (min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw"
                         />
@@ -199,4 +219,4 @@ const Speakers = () => {
   )
 }
 
-export default Speakers
+export default Musikgesellschaften

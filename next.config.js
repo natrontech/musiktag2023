@@ -1,15 +1,8 @@
 /** @type {import('next').NextConfig} */
 
-const withPWA = require('next-pwa')({
-  dest: "public",
-  register: true,
-  skipWaiting: true,
-  disable: process.env.NODE_ENV === "development",
-})
-
-module.exports = withPWA({
+module.exports = {
   trailingSlash: true,
-  reactStrictMode: true,
+  reactStrictMode: false,
   publicRuntimeConfig: {
     ENV_API_URL: process.env.ENV_API_URL,
   },
@@ -20,4 +13,4 @@ module.exports = withPWA({
   env: {
     storePicturesInWEBP: true,
   }
-})
+}

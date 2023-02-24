@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { pb } from '../lib/pocketbase';
 import Header from '../components/Header'
 import Hero from '../components/Hero'
-import Speakers from '../components/Speakers'
+import Musikgesellschaften from '../components/Musikgesellschaften'
 import Schedule from '../components/Schedule'
 import Sponsors from '../components/Sponsors'
 import Footer from '../components/Footer';
@@ -20,7 +20,7 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <Speakers />
+        <Musikgesellschaften />
         <Schedule />
         <Sponsors />
       </main>
