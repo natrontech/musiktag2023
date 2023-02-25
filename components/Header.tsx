@@ -106,6 +106,10 @@ const Header = () => {
             </p>
             <DiamondIcon className="h-1.5 w-1.5 overflow-visible fill-current stroke-current" />
             <p>Konolfingen</p>
+            <DiamondIcon className="h-1.5 w-1.5 overflow-visible fill-current stroke-current" />
+            <a href="mailto:musiktag2023@mgkonolfingen.ch" className="hover:underline">
+              musiktag2023@mgkonolfingen.ch
+            </a>
           </div>
         </div>
         <div className="hidden sm:mt-10 sm:flex lg:mt-0 lg:grow lg:basis-0 lg:justify-end ">
