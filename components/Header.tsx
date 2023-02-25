@@ -102,7 +102,7 @@ const Header = () => {
           <div className="mx-auto flex items-center gap-4 px-4">
             <p>
               <time dateTime="2023-06-09">09.</time>-
-              <time dateTime="2023-06-10">10. April, 2023</time>
+              <time dateTime="2023-06-10">10. Juni, 2023</time>
             </p>
             <DiamondIcon className="h-1.5 w-1.5 overflow-visible fill-current stroke-current" />
             <p>Konolfingen</p>
