@@ -6,6 +6,7 @@ import Musikgesellschaften from '../components/Musikgesellschaften'
 import Schedule from '../components/Schedule'
 import Sponsors from '../components/Sponsors'
 import Footer from '../components/Footer';
+import Map from '../components/Map';
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
         <Hero />
         <Musikgesellschaften />
         <Schedule />
+        <Map />
         <Sponsors />
       </main>
       <Footer />

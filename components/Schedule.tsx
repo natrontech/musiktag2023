@@ -266,7 +266,7 @@ const Schedule = () => {
             Unser zweitägiger Zeitplan ist prall gefüllt mit talentierten, kreativen und beeindruckenden Köpfen aus der Blasmusikszene.
           </h2>
           <p className="mt-4 font-display sm:text-2xl tracking-tight text-gray-900">
-            Unser Programm bietet Konzerte, Auftritte und mitreißende Marschmusik-Präsentationen, sowie eine Disco und Barbetrieb. Zusätzlich gibt es eine Festwirtschaft mit kulinarischen Köstlichkeiten und erfrischenden Getränken.
+            Unser Programm bietet Konzerte, Auftritte und mitreissende Marschmusik-Präsentationen, sowie eine Disco und Barbetrieb. Zusätzlich gibt es eine Festwirtschaft mit kulinarischen Köstlichkeiten und erfrischenden Getränken.
           </p>
         </div>
       </Container>
