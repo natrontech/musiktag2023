@@ -22,10 +22,6 @@ module.exports = {
         transparent: "transparent",
         'black': '#1A1A1A',
         'white': '#FFFFFF',
-        'primary': '#4285F4',
-        'primary-dark': '#3164B5',
-        'secondary': '#F59B5B',
-        'secondary-dark': '#B57343'
       },
       fontSize: {
         '4b5': ['2.9rem', '1'],
@@ -38,9 +34,8 @@ module.exports = {
     },
   },
   plugins: [
-    require('@tailwindcss/forms'),
     require('tailwind-scrollbar-hide'),
-    require("flowbite/plugin")
+    require("daisyui"),
   ],
   corePlugins: {
     fontFamily: true,

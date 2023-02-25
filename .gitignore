@@ -38,3 +38,5 @@ next-env.d.ts
 env/
 sw.js
 workbox-*.js
+.env.production
+.env
