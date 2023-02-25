@@ -130,7 +130,7 @@ const Musikgesellschaften = () => {
           vertical={tabOrientation === 'vertical'}
         >
           <div className="relative -mx-4 flex overflow-x-auto pb-4 sm:mx-0 sm:block sm:overflow-visible sm:pb-0">
-            <div className="absolute bottom-0 top-2 left-0.5 hidden w-px bg-slate-200 lg:block" />
+            <div className="absolute bottom-0 top-2 left-0.5 hidden w-px bg-white lg:block" />
             <Tab.List className="grid auto-cols-auto grid-flow-col justify-start gap-x-8 gap-y-10 whitespace-nowrap px-4 sm:mx-auto sm:max-w-2xl sm:grid-cols-3 sm:px-0 sm:text-center lg:grid-flow-row lg:grid-cols-1 lg:text-left">
               {/* @ts-ignore */}
               {({ selectedIndex }) =>
@@ -141,7 +141,7 @@ const Musikgesellschaften = () => {
                         'absolute top-[0.5625rem] left-[-0.5px] hidden h-1.5 w-1.5 overflow-visible lg:block',
                         dayIndex === selectedIndex
                           ? 'fill-red-600 stroke-red-600'
-                          : 'fill-transparent stroke-slate-400'
+                          : 'fill-transparent stroke-white'
                       )}
                     />
                     <div className="relative">
@@ -191,7 +191,7 @@ const Musikgesellschaften = () => {
                         )}
                       />
                       <div
-                        className="absolute inset-0 bg-indigo-50"
+                        className="absolute inset-0 bg-white"
                         style={{ clipPath: `url(#${id}-${speakerIndex % 3})` }}
                       >
                         <img

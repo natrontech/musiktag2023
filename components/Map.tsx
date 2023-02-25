@@ -16,7 +16,8 @@ const Map = () => {
               Situationsplan
             </h2>
             <p className="mt-4 font-display sm:text-2xl tracking-tight text-gray-900">
-
+              Auf dem Plan sind die verschiedenen Parkplätze für die Besucher des Musiktags markiert. Es gibt Parkplätze in unmittelbarer Nähe des Festgeländes sowie weitere Parkplätze in der Umgebung.
+              Auch per Bahn ist das Festgelände gut erreichbar.
             </p>
           </div>
           <Image

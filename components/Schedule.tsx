@@ -14,61 +14,6 @@ interface DaysInterface {
   timeSlots: ScheduleInterface[]
 }
 
-// const schedule = [
-//   {
-//     date: '09. Juni',
-//     dateTime: '2023-06-09',
-//     summary:
-//       'Der erste Tag besteht aus einem spannenden Abendprogramm.',
-//     timeSlots: [
-//       {
-//         name: 'Abends',
-//         description: 'Marschparade mehrerer Jugendmusiken aus der Region',
-//         start: '18:00',
-//         end: '20:00',
-//       },
-//       {
-//         name: 'Abends Festzelt',
-//         description: 'Disco, Festwirtschaft und Barbetrieb',
-//         start: '20:00',
-//         end: '23:00',
-//       }
-//     ],
-//   },
-//   {
-//     date: '10. Juni',
-//     dateTime: '2023-06-10',
-//     summary:
-//       'Der zweite Tag besteht aus einem ganztägigen Programm.',
-//     timeSlots: [
-//       {
-//         name: 'Vormittag',
-//         description: 'Empfang der Musikgesellschaften auf dem Festgelände Mehrzweckplatz, Konzertvorträge im Kirchgemeindehaus Konolfingen, Unterhaltungskonzerte im Festzelt Mehrzweckplatz',
-//         start: '08:00',
-//         end: '12:00',
-//       },
-//       {
-//         name: 'Nachmittag',
-//         description: 'Konzertvorträge im Kirchgemeindehaus Konolfingen, Unterhaltungskonzerte im Festzelt Mehrzweckplatz',
-//         start: '12:00',
-//         end: '16:00',
-//       },
-//       {
-//         name: 'Vorabend',
-//         description: 'Maschmusik-Parade mit anschliessendem Gesamtchor',
-//         start: '16:00',
-//         end: '18:00',
-//       },
-//       {
-//         name: 'Abend',
-//         description: 'Unterhaltung mit der Blaskapelle "Echt Bähmisch" Festwirtschaft und Barbetrieb im Festzelt Mehrzweckplatz',
-//         start: '18:00',
-//         end: '23:00',
-//       }
-//     ],
-//   },
-// ]
-
 function ScheduleTabbed({ schedule }: { schedule: DaysInterface[] }) {
   let [tabOrientation, setTabOrientation] = useState('horizontal')
 
@@ -98,7 +43,7 @@ function ScheduleTabbed({ schedule }: { schedule: DaysInterface[] }) {
         {({ selectedIndex }) =>
           schedule.map((day, dayIndex) => (
             <div
-              key={day.dateTime}
+              key={day.date}
               className={clsx(
                 'relative w-3/4 flex-none pr-4 sm:w-auto sm:pr-0',
                 dayIndex !== selectedIndex && 'opacity-70'
@@ -121,7 +66,7 @@ function ScheduleTabbed({ schedule }: { schedule: DaysInterface[] }) {
       <Tab.Panels>
         {schedule.map((day) => (
           <Tab.Panel
-            key={day.dateTime}
+            key={day.date}
             className="[&:not(:focus-visible)]:focus:outline-none"
           >
             <TimeSlots day={day} />
@@ -162,11 +107,11 @@ function TimeSlots({ day, className }: any) {
         const timeStringEnd = endDate.toUTCString().slice(17, 22);
         return (
           <li
-            key={timeSlot.collectionId}
+            key={timeSlot.id}
             aria-label={`${timeSlot.name} talking about ${timeSlot.description} at ${timeSlot.start} - ${timeSlot.end}`}
           >
             {timeSlotIndex > 0 && (
-              <div className="mx-auto mb-8 h-px w-48 bg-indigo-500/10" />
+              <div className="mx-auto mb-8 h-px w-48 bg-red-500/10" />
             )}
             <h4 className="text-lg font-semibold tracking-tight text-red-900">
               {timeSlot.name}
@@ -176,7 +121,7 @@ function TimeSlots({ day, className }: any) {
                 {timeSlot.description}
               </p>
             )}
-            <p className="mt-1 font-mono text-sm text-slate-500">
+            <p className="mt-1 font-mono font-bold text-sm text-black">
               <time dateTime={`${day.dateTime}T${timeSlot.start}-08:00`}>
                 { timeStringStart }
               </time>{' '}
@@ -225,7 +170,8 @@ const Schedule = () => {
   useEffect(() => {
     (
       async () => {
-        await pb.collection('schedules').getList(1, 50, {
+        await pb.collection('schedules').getList(1, 200, {
+          sort: 'start_datetime'
         }).then((res: ListResult) => {
           // @ts-ignore
           let tempSchedules: ScheduleInterface[] = res.items
