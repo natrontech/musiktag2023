@@ -17,7 +17,8 @@ export default function handler(req: any, res: any) {
       {
         text: text,
         from: 'Helferanfragen Amtsmusiktag <sponsoring@mgkonolfingen.ch>',
-        to: 'Musiktag2023 <musiktag2023@mgkonolfingen.ch>',
+        // to: 'Musiktag2023 <musiktag2023@mgkonolfingen.ch>',
+        to: 'Musiktag2023 <jan.lauber@natron.io>',
         subject: 'Helferanfrage Amtsmusiktag: ' + name,
       },
       (err, message) => {
