@@ -1,6 +1,3 @@
-const { url } = require('inspector')
-const defaultTheme = require('tailwindcss/defaultTheme')
-
 module.exports = {
   content: [
     "./node_modules/flowbite-react/**/*.js",
@@ -31,6 +28,9 @@ module.exports = {
       height: {
         '128': '32rem',
       }
+    },
+    daisyui: {
+      themes: false,
     },
   },
   plugins: [

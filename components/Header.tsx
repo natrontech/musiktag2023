@@ -113,8 +113,8 @@ const Header = () => {
           </div>
         </div>
         <div className="hidden sm:mt-10 sm:flex lg:mt-0 lg:grow lg:basis-0 lg:justify-end ">
-          <label htmlFor="my-modal-6" className="cursor-pointer relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800">
-            <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+          <label htmlFor="my-modal-6" className="cursor-pointer relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white  focus:ring-4 focus:outline-none focus:ring-pink-200">
+            <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-opacity-0">
               ⚠️ Helfer werden ⚠️
             </span>
           </label>
@@ -127,7 +127,7 @@ const Header = () => {
         <div className="modal modal-bottom sm:modal-middle">
           <div className="modal-box">
             <label htmlFor="my-modal-6" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-            <h3 className="font-bold text-red-600 text-lg">Helfer werden</h3>
+            <h3 className="font-bold text-red-600 dark:text-white text-lg">Helfer werden</h3>
             <form className="mt-4" id="helfer-form">
               <div className="form-control w-full max-w-xs">
                 <label className="label">
@@ -147,7 +147,7 @@ const Header = () => {
                 </label>
                 <input id="phone" type="text" placeholder="0798000000" className="input input-bordered w-full max-w-xs" required />
               </div>
-              <h3 className="font-bold text-lg mt-4">Verfügbare Tage</h3>
+              <h3 className="font-bold text-lg dark:text-white mt-4">Verfügbare Tage</h3>
               <p className="text-gray-500 text-sm">Wähle alle für dich passenden Tage aus.</p>
               <div className="form-control">
                 <label className="label cursor-pointer">
@@ -161,7 +161,7 @@ const Header = () => {
                   <input id="samstag" type="checkbox" className="checkbox" />
                 </label>
               </div>
-              <h3 className="font-bold text-lg mt-4">Funktionen</h3>
+              <h3 className="font-bold text-lg dark:text-white mt-4">Funktionen</h3>
               <p className="text-gray-500 text-sm">Wähle alle für dich passenden Funktionen aus.</p>
               <div className="form-control">
                 <label className="label cursor-pointer">
@@ -195,8 +195,8 @@ const Header = () => {
               </div>
             </form>
             <div className="modal-action" onClick={SendMail}>
-              <label htmlFor="my-modal-6" className="cursor-pointer relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800">
-                <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+              <label htmlFor="my-modal-6" className="cursor-pointer relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white  focus:ring-4 focus:outline-none focus:ring-pink-200">
+                <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-opacity-0">
                   Absenden
                 </span>
               </label>
@@ -206,8 +206,8 @@ const Header = () => {
       </Container>
       <Container className="flex flex-wrap items-center mt-10 sm:hidden justify-center sm:justify-between lg:flex-nowrap">
         <div className="sm:hidden sm:mt-10 lg:mt-0 lg:grow lg:basis-0 lg:justify-end ">
-          <label htmlFor="my-modal-6" className="cursor-pointer relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800">
-            <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+          <label htmlFor="my-modal-6" className="cursor-pointer relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white focus:ring-4 focus:outline-none focus:ring-pink-200">
+            <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-opacity-0">
               ⚠️ Helfer werden ⚠️
             </span>
           </label>
