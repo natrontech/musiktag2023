@@ -4,6 +4,11 @@ export default function handler(req: any, res: any) {
 
   const { name, text } = req.body;
 
+  if (!name || !text) {
+    res.status(400).end(JSON.stringify({ message: "Error" }))
+    return;
+  }
+
   const client = new SMTPClient({
     user: process.env.ENV_MAIL_USERNAME,
     password: process.env.ENV_MAIL_PASSWORD,
