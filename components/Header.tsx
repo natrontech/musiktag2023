@@ -19,6 +19,7 @@ const Header = () => {
     const buffet = form.elements.namedItem('buffet') as HTMLInputElement
     const service = form.elements.namedItem('service') as HTMLInputElement
     const bar = form.elements.namedItem('bar') as HTMLInputElement
+    const verkehr = form.elements.namedItem('verkehr') as HTMLInputElement
     const sonstiges = form.elements.namedItem('sonstiges') as HTMLInputElement
 
     // validate data
@@ -38,7 +39,7 @@ const Header = () => {
       toast.error('Bitte wähle einen Tag aus')
       return
     }
-    if (!küche.checked && !buffet.checked && !service.checked && !bar.checked && !sonstiges.checked) {
+    if (!küche.checked && !buffet.checked && !service.checked && !bar.checked && !verkehr.checked && !sonstiges.checked) {
       toast.error('Bitte wähle eine Aufgabe aus')
       return
     }
@@ -52,7 +53,8 @@ const Header = () => {
     text += `Küche: ${küche.checked ? 'Ja' : 'Nein'} \n`
     text += `Buffet: ${buffet.checked ? 'Ja' : 'Nein'} \n`
     text += `Service: ${service.checked ? 'Ja' : 'Nein'} \n`
-    text += `Bar: ${bar.checked ? 'Ja' : 'Nein'} \n`
+    text += `Bar / Bierzelt: ${bar.checked ? 'Ja' : 'Nein'} \n`
+    text += `Verkehrsführung: ${verkehr.checked ? 'Ja' : 'Nein'} \n`
     text += `Sonstiges: ${sonstiges.checked ? 'Ja' : 'Nein'} \n`
 
     // send data to api
@@ -79,6 +81,7 @@ const Header = () => {
       buffet.checked = false
       service.checked = false
       bar.checked = false
+      verkehr.checked = false
       sonstiges.checked = false
 
       // close modal
@@ -183,8 +186,14 @@ const Header = () => {
               </div>
               <div className="form-control">
                 <label className="label cursor-pointer">
-                  <span className="label-text">Bar</span>
+                  <span className="label-text">Bar / Bierzelt</span>
                   <input id="bar" type="checkbox" className="checkbox" />
+                </label>
+              </div>
+              <div className="form-control">
+                <label className="label cursor-pointer">
+                  <span className="label-text">Verkehrsführung</span>
+                  <input id="verkehr" type="checkbox" className="checkbox" />
                 </label>
               </div>
               <div className="form-control">
