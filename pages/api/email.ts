@@ -9,6 +9,12 @@ export default function handler(req: any, res: any) {
     return;
   }
 
+  // if not POST request, return 405
+  if (req.method !== 'POST') {
+    res.status(405).end(JSON.stringify({ message: "Error" }))
+    return;
+  }
+
   const client = new SMTPClient({
     user: process.env.ENV_MAIL_USERNAME,
     password: process.env.ENV_MAIL_PASSWORD,
