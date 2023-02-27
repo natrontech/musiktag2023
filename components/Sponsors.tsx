@@ -41,7 +41,7 @@ const Sponsors = () => {
     <section id="sponsors" aria-label="Sponsors" className="py-20 sm:py-32">
       <Container>
         <h2 className="mx-auto max-w-2xl text-center font-display text-4xl font-medium tracking-tighter text-gray-900 sm:text-5xl">
-          Die Sponsoren des Anlasses
+          Die Partner des Anlasses
         </h2>
         {
           // for each type of sponsor (gold, silber, bronze, supporter)
@@ -73,7 +73,7 @@ const Sponsors = () => {
                     filteredSponsors.length === 0 && (
                       <div className="flex flex-col items-center justify-center">
                         <p className="text-center text-gray-500">
-                          Noch keine {type === 'gold' && 'Gold'}{type === 'silber' && 'Silber'}{type === 'bronze' && 'Bronze'}{type === 'supporter' && 'Unterstützer'}-Sponsoren
+                          Noch keine {type === 'gold' && 'Gold'}{type === 'silber' && 'Silber'}{type === 'bronze' && 'Bronze'}{type === 'supporter' && 'Unterstützer'}-Partner
                         </p>
                       </div>
                     )

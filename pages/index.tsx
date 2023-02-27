@@ -7,6 +7,7 @@ import Schedule from '../components/Schedule'
 import Sponsors from '../components/Sponsors'
 import Footer from '../components/Footer';
 import Map from '../components/Map';
+import OK from '../components/OK';
 
 export default function Home() {
   return (
@@ -25,6 +26,7 @@ export default function Home() {
         <Schedule />
         <Map />
         <Sponsors />
+        <OK />
       </main>
       <Footer />
     </>
