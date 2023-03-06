@@ -17,17 +17,10 @@ const Sponsors = () => {
         }).then((res: ListResult) => {
           // @ts-ignore
           let tempSponsors: SponsorInterface[] = res.items
-          // sort sponsors by type (gold, silber, bronze, supporter)
+          // sort sponsors by type (gold, silber, bronze, supporter, lieferanten, medien, raumsponsor)
           tempSponsors.sort((a, b) => {
-            if (a.type === 'gold') {
-              return -1
-            } else if (a.type === 'silber' && b.type !== 'gold') {
-              return -1
-            } else if (a.type === 'bronze' && b.type === 'supporter') {
-              return -1
-            } else {
-              return 1
-            }
+            const types = ['gold', 'silber', 'bronze', 'supporter', 'lieferanten', 'medien', 'raumsponsor']
+            return types.indexOf(a.type) - types.indexOf(b.type)
           })
           setSponsors(tempSponsors)
         }).catch((err) => {
@@ -44,8 +37,8 @@ const Sponsors = () => {
           Die Partner des Anlasses
         </h2>
         {
-          // for each type of sponsor (gold, silber, bronze, supporter)
-          ['gold', 'silber', 'bronze', 'supporter'].map((type) => {
+          // for each type of sponsor (gold, silber, bronze, supporter, lieferanten, medien, raumsponsor)
+          ['gold', 'silber', 'bronze', 'supporter', 'lieferanten', 'medien', 'raumsponsor'].map((type) => {
             // filter sponsors by type
             const filteredSponsors = sponsors.filter((sponsor) => sponsor.type === type)
             return (
@@ -62,18 +55,24 @@ const Sponsors = () => {
                     type == 'silber' ? 'text-gray-400 text-4xl' : '',
                     type == 'bronze' ? 'text-orange-500 text-3xl' : '',
                     type == 'supporter' ? 'text-gray-500 text-xl' : '',
+                    type == 'lieferanten' ? 'text-gray-500 text-xl' : '',
+                    type == 'medien' ? 'text-gray-500 text-xl' : '',
+                    type == 'raumsponsor' ? 'text-gray-500 text-xl' : '',
                   )
                 }>
                   {type === 'gold' && 'Gold'}
                   {type === 'silber' && 'Silber'}
                   {type === 'bronze' && 'Bronze'}
                   {type === 'supporter' && 'Unterstützer'}
+                  {type === 'lieferanten' && 'Lieferanten'}
+                  {type === 'medien' && 'Medien'}
+                  {type === 'raumsponsor' && 'Raumsponsor'}
                 </h3>
                   {
                     filteredSponsors.length === 0 && (
                       <div className="flex flex-col items-center justify-center">
                         <p className="text-center text-gray-500">
-                          Noch keine {type === 'gold' && 'Gold'}{type === 'silber' && 'Silber'}{type === 'bronze' && 'Bronze'}{type === 'supporter' && 'Unterstützer'}-Partner
+                          Noch keine Partner
                         </p>
                       </div>
                     )
@@ -89,6 +88,9 @@ const Sponsors = () => {
                           sponsor.type == 'silber' ? 'h-32' : '',
                           sponsor.type == 'bronze' ? 'h-24' : '',
                           sponsor.type == 'supporter' ? 'h-16' : '',
+                          sponsor.type == 'lieferanten' ? 'h-16' : '',
+                          sponsor.type == 'medien' ? 'h-16' : '',
+                          sponsor.type == 'raumsponsor' ? 'h-16' : '',
                         )}>
                           <a href={sponsor.url} target="_blank" rel="noreferrer">
                             <img
@@ -105,6 +107,9 @@ const Sponsors = () => {
                                 sponsor.type == 'silber' ? 'h-32' : '',
                                 sponsor.type == 'bronze' ? 'h-24' : '',
                                 sponsor.type == 'supporter' ? 'h-16' : '',
+                                sponsor.type == 'lieferanten' ? 'h-16' : '',
+                                sponsor.type == 'medien' ? 'h-16' : '',
+                                sponsor.type == 'raumsponsor' ? 'h-16' : '',
                               )}
                               src={parseImageUrl(sponsor)}
                               alt={sponsor.name}
