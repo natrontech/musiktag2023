@@ -2,12 +2,15 @@ import { SMTPClient } from 'emailjs';
 
 export default function handler(req: any, res: any) {
 
-  const { name, text } = req.body;
+  let { name, text, email } = req.body;
 
-  if (!name || !text) {
+
+  if (!name || !text || !email) {
     res.status(400).end(JSON.stringify({ message: "Error" }))
     return;
   }
+
+  const textHelfer = text + `\n Vielen Dank für deine Helferanfrage. Wir werden uns so schnell wie möglich bei dir melden. \n\n Liebe Grüsse \n\n Musikgesellschaft Konolfingen`
 
   // if not POST request, return 405
   if (req.method !== 'POST') {
@@ -30,6 +33,17 @@ export default function handler(req: any, res: any) {
         from: 'Helferanfragen Amtsmusiktag <sponsoring@mgkonolfingen.ch>',
         to: 'Musiktag2023 <musiktag2023@mgkonolfingen.ch>',
         subject: 'Helferanfrage Amtsmusiktag: ' + name,
+      },
+      (err, message) => {
+        console.log(err || message);
+      }
+    )
+    client.send(
+      {
+        text: textHelfer,
+        from: 'Helferanfragen Amtsmusiktag <sponsoring@mgkonolfingen.ch>',
+        to: name + ' <' + email + '>',
+        subject: 'Deine Helferanfrage am Amtsmusiktag: ' + name,
       },
       (err, message) => {
         console.log(err || message);
