@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import { pb } from '../lib/pocketbase';
 import Header from '../components/Header'
 import Hero from '../components/Hero'
 import Musikgesellschaften from '../components/Musikgesellschaften'
