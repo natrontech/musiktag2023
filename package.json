@@ -51,7 +51,6 @@
     "react-image-gallery": "^1.2.11",
     "react-loading-skeleton": "3.1.0",
     "react-parallax-tilt": "^1.7.43",
-    "react-pdf": "^6.2.2",
     "react-spinners": "^0.13.4",
     "react-toastify": "^9.0.8",
     "rehype-stringify": "^9.0.3",
