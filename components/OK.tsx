@@ -82,6 +82,18 @@ const OK = () => {
 
   return (
     <Container>
+      <div className="mb-10">
+        <object data="/data/flyer.pdf" type="application/pdf" className='w-full h-160 sm:block hidden'>
+          <p>Alternative text - include a link <a href="/data/flyer.pdf">to the PDF!</a></p>
+        </object>
+        <div className="w-full flex justify-center items-center sm:hidden">
+          <button onClick={downloadFlyer} className="relative inline-flex items-center justify-center p-0.5 mb-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white focus:ring-4 focus:outline-none focus:ring-pink-200">
+            <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-opacity-0">
+              Download Flyer
+            </span>
+          </button>
+        </div>
+      </div>
       <h2 className="mx-auto max-w-2xl text-center font-display text-4xl font-medium tracking-tighter text-gray-900 sm:text-5xl">
         Das Organisationskomitee
       </h2>
@@ -151,18 +163,6 @@ const OK = () => {
             }
           </tbody>
         </table> */}
-      </div>
-      <div className="mt-10">
-        <object data="/data/flyer.pdf" type="application/pdf" className='w-full h-160 sm:block hidden'>
-          <p>Alternative text - include a link <a href="/data/flyer.pdf">to the PDF!</a></p>
-        </object>
-        <div className="w-full flex justify-center items-center sm:hidden">
-          <button onClick={downloadFlyer} className="relative inline-flex items-center justify-center p-0.5 mb-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white focus:ring-4 focus:outline-none focus:ring-pink-200">
-            <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-opacity-0">
-              Download Flyer
-            </span>
-          </button>
-        </div>
       </div>
     </Container>
   )
