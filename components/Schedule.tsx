@@ -220,7 +220,7 @@ const Schedule = () => {
           </p>
         </div>
         <div className="mt-10">
-          <object data="/data/flyer.pdf" type="application/pdf" className='w-full h-160 sm:block hidden'>
+          <object data="/data/festfuehrer.pdf" type="application/pdf" className='w-full h-160 sm:block hidden'>
             <p>Alternative text - include a link <a href="/data/festfuehrer.pdf">to the PDF!</a></p>
           </object>
           <div className="w-full flex justify-center items-center sm:hidden">
