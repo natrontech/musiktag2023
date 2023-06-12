@@ -4,9 +4,10 @@ import Hero from '../components/Hero'
 import Musikgesellschaften from '../components/Musikgesellschaften'
 import Schedule from '../components/Schedule'
 import Sponsors from '../components/Sponsors'
-import Footer from '../components/Footer';
-import Map from '../components/Map';
-import OK from '../components/OK';
+import Footer from '../components/Footer'
+import Map from '../components/Map'
+import OK from '../components/OK'
+import { CameraIcon } from '@heroicons/react/24/outline'
 
 export default function Home() {
   return (

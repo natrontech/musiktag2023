@@ -43,21 +43,22 @@ const Musikgesellschaften = () => {
       name: 'Abends',
       date: '09. Juni',
       dateTime: '2022-06-09',
-      speakers: []
+      speakers: [],
     },
     {
       name: 'Ganztägig',
       date: '10. Juni',
       dateTime: '2022-06-10',
-      speakers: []
-    }
+      speakers: [],
+    },
   ])
 
   useEffect(() => {
-    (
-      async () => {
-        await pb.collection('musikgesellschaften').getList(1, 50, {
-        }).then((res: ListResult) => {
+    ;(async () => {
+      await pb
+        .collection('musikgesellschaften')
+        .getList(1, 50, {})
+        .then((res: ListResult) => {
           // @ts-ignore
           let tempMusikgesellschaften: MusikgesellschaftInterface[] = res.items
           // add each musikgesellschaft to the correct day
@@ -65,16 +66,16 @@ const Musikgesellschaften = () => {
             tempMusikgesellschaften.forEach((musikgesellschaft: MusikgesellschaftInterface) => {
               let dayString = musikgesellschaft.start_datetime.toString()
               // if musikgesellschaft.start_datetime contains the string "2023-06-09"
-              if ((dayString.indexOf('2023-06-09') > -1)) {
+              if (dayString.indexOf('2023-06-09') > -1) {
                 // add musikgesellschaft to the first day
-                setDays((prevDays) => {
+                setDays(prevDays => {
                   let newDays = [...prevDays]
                   newDays[0].speakers.push(musikgesellschaft)
                   return newDays
                 })
               } else {
                 // add musikgesellschaft to the second day
-                setDays((prevDays) => {
+                setDays(prevDays => {
                   let newDays = [...prevDays]
                   newDays[1].speakers.push(musikgesellschaft)
                   return newDays
@@ -82,11 +83,11 @@ const Musikgesellschaften = () => {
               }
             })
           }
-        }).catch((err) => {
+        })
+        .catch(err => {
           console.log(err)
         })
-      }
-    )()
+    })()
   }, [])
 
   useEffect(() => {
@@ -105,13 +106,43 @@ const Musikgesellschaften = () => {
   }, [])
 
   return (
-    <section
-      id="speakers"
-      aria-labelledby="speakers-title"
-      className="py-20 sm:py-32"
-    >
+    <section id="speakers" aria-labelledby="speakers-title" className="py-20 sm:py-32">
       <ImageClipPaths id={id} />
       <Container>
+        <div className="mx-auto">
+          <h2
+            id="speakers-title"
+            className="font-display text-4xl font-medium tracking-tighter text-red-600 sm:text-5xl"
+          >
+            Tombola Preisnummer
+          </h2>
+
+          <table className="mt-4 font-display sm:text-2xl tracking-tight text-gray-900 w-full">
+            <tbody>
+              <tr>
+                <td className='font-bold'>Preis</td>
+                <td className='font-bold'>Gewinnnummer</td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <div>2 Tageskarten Thunder-Brienzersee</div>
+                  </div>
+                </td>
+                <td>56</td>
+              </tr>
+              <tr>
+                <td>Migros</td>
+                <td>33</td>
+              </tr>
+              <tr>
+                <td>Migros</td>
+                <td>66</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
         <div className="mx-auto max-w-2xl lg:mx-0">
           <h2
             id="speakers-title"
@@ -120,8 +151,8 @@ const Musikgesellschaften = () => {
             Musikgesellschaften
           </h2>
           <p className="mt-4 font-display sm:text-2xl tracking-tight text-gray-900">
-            Beim Amtsmusiktag 2023 werden zahlreiche Musikgesellschaften aus der Region vertreten sein.
-            Wir sind stolz darauf, dass so viele musikalische Vereine sich an diesem Tag zusammenfinden und ihr Bestes geben werden.
+            Beim Amtsmusiktag 2023 werden zahlreiche Musikgesellschaften aus der Region vertreten sein. Wir sind stolz
+            darauf, dass so viele musikalische Vereine sich an diesem Tag zusammenfinden und ihr Bestes geben werden.
           </p>
         </div>
         <Tab.Group
@@ -139,18 +170,14 @@ const Musikgesellschaften = () => {
                     <DiamondIcon
                       className={clsx(
                         'absolute top-[0.5625rem] left-[-0.5px] hidden h-1.5 w-1.5 overflow-visible lg:block',
-                        dayIndex === selectedIndex
-                          ? 'fill-red-600 stroke-red-600'
-                          : 'fill-transparent stroke-white'
+                        dayIndex === selectedIndex ? 'fill-red-600 stroke-red-600' : 'fill-transparent stroke-white'
                       )}
                     />
                     <div className="relative">
                       <div
                         className={clsx(
                           'font-mono text-sm',
-                          dayIndex === selectedIndex
-                            ? 'text-red-600'
-                            : 'text-slate-500'
+                          dayIndex === selectedIndex ? 'text-red-600' : 'text-slate-500'
                         )}
                       >
                         <Tab className="[focus:outline-none focus:none">
@@ -171,7 +198,7 @@ const Musikgesellschaften = () => {
             </Tab.List>
           </div>
           <Tab.Panels className="lg:col-span-3">
-            {days.map((day) => (
+            {days.map(day => (
               <Tab.Panel
                 key={day.dateTime}
                 className="grid focus:none grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 sm:gap-y-16 md:grid-cols-3 focus:outline-none"
@@ -183,11 +210,7 @@ const Musikgesellschaften = () => {
                       <div
                         className={clsx(
                           'absolute top-0 left-0 right-4 bottom-6 rounded-4xl border transition duration-300 group-hover:scale-95 xl:right-6',
-                          [
-                            'border-red-300',
-                            'border-indigo-300',
-                            'border-sky-300',
-                          ][speakerIndex % 3]
+                          ['border-red-300', 'border-indigo-300', 'border-sky-300'][speakerIndex % 3]
                         )}
                       />
                       <div
@@ -205,9 +228,7 @@ const Musikgesellschaften = () => {
                     <h3 className="mt-8 font-display text-xl font-bold tracking-tight text-slate-900">
                       {speaker.name}
                     </h3>
-                    <p className="mt-1 text-base tracking-tight text-slate-500">
-                      {speaker.description}
-                    </p>
+                    <p className="mt-1 text-base tracking-tight text-slate-500">{speaker.description}</p>
                   </div>
                 ))}
               </Tab.Panel>

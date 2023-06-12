@@ -29,30 +29,38 @@ const Header = () => {
           target="_blank"
           rel="noreferrer"
         >
-          <label className="cursor-pointer relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white  focus:ring-4 focus:outline-none focus:ring-pink-200">
-            <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-opacity-0">
-              <CameraIcon className="h-5 w-5 mr-2 inline" />
-              Instagram <CameraIcon className="h-5 w-5 ml-2 inline" />
-            </span>
-          </label>
         </a>
         {/* The button to open modal */}
       </Container>
       <Container className="flex flex-wrap items-center mt-10 sm:hidden justify-center sm:justify-between lg:flex-nowrap">
-        <a
-          href="https://www.instagram.com/mgkonolfingen/"
-          className="sm:hidden sm:mt-10 lg:mt-0 lg:grow lg:basis-0 lg:justify-end"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <label className="cursor-pointer relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white focus:ring-4 focus:outline-none focus:ring-pink-200">
-            <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-opacity-0">
-              <CameraIcon className="h-5 w-5 mr-2 inline" />
-              Instagram <CameraIcon className="h-5 w-5 ml-2 inline" />
-            </span>
-          </label>
-        </a>
       </Container>
+      <a
+        href="https://www.picdrop.com/fjurazoom/AmtsmusiktagFreitag"
+        className="hidden sm:mt-10 sm:flex lg:mt-0 lg:grow lg:basis-0 justify-center"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <label className="cursor-pointer relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white  focus:ring-4 focus:outline-none focus:ring-pink-200">
+          <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-opacity-0">
+            <CameraIcon className="h-5 w-5 mr-2 inline" />
+            Fotos Freitag <CameraIcon className="h-5 w-5 ml-2 inline" />
+          </span>
+        </label>
+      </a>
+
+      <a
+        href="https://www.picdrop.com/fjurazoom/AmtsmusiktagSamstag"
+        className="hidden sm:mt-10 sm:flex lg:mt-0 lg:grow lg:basis-0 justify-center"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <label className="cursor-pointer relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white  focus:ring-4 focus:outline-none focus:ring-pink-200">
+          <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-opacity-0">
+            <CameraIcon className="h-5 w-5 mr-2 inline" />
+            Fotos Samstag <CameraIcon className="h-5 w-5 ml-2 inline" />
+          </span>
+        </label>
+      </a>
     </header>
   )
 }
