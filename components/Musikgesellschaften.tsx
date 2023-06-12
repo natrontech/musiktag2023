@@ -141,6 +141,10 @@ const Musikgesellschaften = () => {
               </tr>
             </tbody>
           </table>
+
+          <p className="mt-4 font-display sm:text-2xl tracking-tight text-gray-900">
+            * Abholen beim Gemeindehaus Konolfingen
+          </p>
         </div>
 
         <div className="mx-auto max-w-2xl lg:mx-0">
